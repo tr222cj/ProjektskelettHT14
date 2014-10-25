@@ -1,0 +1,9 @@
+p span.parent-em {
+    display: block;
+    font-size: 1.25em;
+}
+
+p span.child-em {
+    display: block;
+    font-size: 0.75em;
+}
