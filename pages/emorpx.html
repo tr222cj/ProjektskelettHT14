@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>em eller px - När kan man använda dessa enheter?</title>
+		<title>Enheter i html/css</title>
 
-		<meta name="description" content="Discussion: em vs. px">
+		<meta name="description" content="Discussion: units in html/css">
 		<meta name="author" content="tr222cj">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -45,13 +45,265 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
+
 				<section>
-					<h1>em eller px</h1>
-					<h3>När kan man använda dessa enheter?</h3>
+					<h1>Enheter i html/css</h1>
+					<h3>Med fokus på Ems och Pixlar</h3>
 					<p>
-						<small>Skapad av tr222cj</small>
+						<small>Skapad av Tomas Vaedelund</small>
 					</p>
 				</section>
+				
+				<section>
+    				<section>
+    					<h2>Vilka är de olika enheterna?</h2>
+    					<p>
+    					    Det finns flera olika enheter:
+    					</p>
+    					<ul>
+    					    <li class="fragment roll-in">"Ems" - em</li>
+    					    <li class="fragment roll-in">"Rems" - rem</li>
+    					    <li class="fragment roll-in">Pixlar - px</li>
+    					    <li class="fragment roll-in">Punkter - pt</li>
+    					    <li class="fragment roll-in">Procent - %</li>
+    					</ul>
+    				</section>
+
+    				<section>
+    					<h2>Mindre vanliga enheter</h2>
+    					<ul>
+    					    <li>Inches (Tum) - in</li>
+    					    <li>Centimeter - cm</li>
+    					    <li>Millimeter - mm</li>
+    					    <li>Picas - pc</li>
+    					    <li>X-Height - ex</li>
+    					</ul>
+    				</section>
+
+    				<section>
+    					<h2>"Ems" - em</h2>
+    					<ul>
+    					    <li>Relativ</li>
+    					    <li>1em = 16px</li>
+    					    <li>Ärver</li>
+    					</ul>
+    				</section>
+
+
+    				<section>
+    					<h2>"Rems" - rem</h2>
+    					<ul>
+    					    <li>Relativ</li>
+    					    <li>1rem = 1em</li>
+    					    <li>Ärver</li>
+    					    <li>"root" em</li>
+    					</ul>
+    				</section>
+
+    				<section>
+    					<h2>Pixlar - px</h2>
+    					<ul>
+    					    <li>Exakt</li>
+    					    <li>1px = 1px</li>
+    					    <li>Ärver inte</li>
+    					</ul>
+    				</section>
+
+    				<section>
+    					<h2>Punkter - pt</h2>
+    					<ul>
+    					    <li>Exakt</li>
+    					    <li>1pt = 1/72 tum</li>
+    					    <li>Ärver inte</li>
+    					    <li>Utskriftsvänlig</li>
+    					</ul>
+    				</section>
+
+    				<section>
+    					<h2>Procent - %</h2>
+    					<ul>
+    					    <li>Relativ</li>
+    					    <li>Ärver</li>
+    					</ul>
+    				</section>
+    				
+    			</section>
+
+                <section>
+					<h2>När kan man då använda Ems respektive Pixlar?</h2>
+					<p>
+					    <ul>
+					        <li>Inget svar</li>
+					        <li>Exempel</li>
+					    </ul>
+					</p>
+				</section>
+				
+				<section>
+				<section data-markdown>
+					<script type="text/template">
+						## "Ems" - em
+						
+						* "font-size"
+						* Utnyttja arv
+
+						```
+                        body { font-size: 100%; } <!-- 16px -->
+                        h1 { font-size: 2em; } <!-- 32px -->
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## media queries
+						
+						Ändra på ETT ställe.
+
+ 						```
+						@media screen and (min-width: 701px) and (max-width: 900px) {
+                        body { font-size: 50%; } <!-- 8px -->
+                        <!-- Ingen h1 då den är relativ -->
+                        <!-- h1 { font-size: 2em; } = 16px -->
+						}
+                        ```
+					</script>
+				</section>
+				
+				<section data-markdown>
+					<script type="text/template">
+						## media queries - px
+						
+						* Odynamiskt
+						* Finns fördelar?
+
+						```
+						@media screen and (min-width: 701px) and (max-width: 900px) {
+                        body { font-size: 8px; }
+                        h1 { font-size: 16px; }
+						}
+                        ```
+					</script>
+				</section>
+    			</section>
+    			
+    			<section>
+    			<section>
+    			    <h2>"Ems" - em, för allt som har med text att göra?</h2>
+    			    <p>
+    			        <ul>
+    			            <li>Rubriker</li>
+    			            <li>Radavstånd</li>
+    			            <li>Bredd</li>
+    			        </ul>
+    			    </p>
+    			</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## em
+						One rule to rule them all
+						
+						
+						```
+                        body { font-size: 100%; } <!-- 16px -->
+                        
+                        h1 { font-size: 1.2em; }
+                        
+                        p {
+                        	font-size: 0.8em;
+                        	line-height: 1em;
+                        	width: 22em;
+                        }
+                        
+                        @media screen and (min-width: 701px)... {
+                            body { font-size: 75%; } <!-- 12px -->
+                        }
+                        ```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## px
+						Kaos?
+						
+						
+						```
+                        body { font-size: 16px; }
+                        
+                        h1 { font-size: 20px; }
+                        
+                        p {
+                        	font-size: 12px;
+                        	line-height: 16px;
+                        	width: 352px;
+                        }
+                        ```
+					</script>
+				</section>
+                </section>
+                
+                <section>
+                <section>
+                    <h2>Fallgropar med em</h2>
+                    <p>Försiktighet och eftertanke krävs</p>
+                </section>
+                
+                <section data-markdown>
+				<script type="text/template">
+					## Arv
+					
+					```
+                    <span class="parent-em">
+                        .parent { font-size: 1.25em }
+                        <span class="child-em">
+                            .child { font-size: 0.75em }
+                            <span class="child-em">
+                                .child { font-size: 0.75em }
+                                <span class="child-em">
+                                    .child { font-size: 0.75em }
+                                </span>
+                            </span>
+                        </span>
+                    </span>
+					```
+				</script>
+				</section>
+				
+			    <section>
+					<h2>Arv - Exempel</h2>
+					<p>
+                        <span class="parent-em">
+                            .parent-em { font-size: 1.25em }
+                            <span class="child-em">
+                                .child-em { font-size: 0.75em }
+                                <span class="child-em">
+                                    .child-em { font-size: 0.75em }
+                                    <span class="child-em">
+                                        .child-em { font-size: 0.75em }
+                                    </span>
+                                </span>
+                            </span>
+                        </span>
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Hur undviker man då detta?</h2>
+                    <ul>
+                        <li>Använd enkel och modulär html</li>
+                        <li>Använd Ems restrektivt</li>
+                        <li>Enbart typografiska element</li>
+                    </ul>
+                </section>
+			    </section>
+			    
+                <section>
+                    <h2>Slut</h2>
+                    <p>Frågor?</p>
+                    <p>Tack för visat intresse :)</p>
+                </section>
 
 			</div>
 
